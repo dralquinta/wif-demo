@@ -1,3 +1,4 @@
+# Using https://github.com/google-github-actions/auth
 name: Deploy to GCP
 
 on:
@@ -6,23 +7,27 @@ on:
       - main
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  job_id:
+    # Add "id-token" with the intended permissions.
     permissions:
-      id-token: write
-      contents: read
+      contents: 'read'
+      id-token: 'write'
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    - uses: 'actions/checkout@v4'
 
-    - name: Authenticate to Google Cloud
-      id: 'auth'
-      uses: 'google-github-actions/auth@v1'
+    - uses: 'google-github-actions/auth@v2'
       with:
+        project_id: 'dryruns'
         workload_identity_provider: 'projects/551624959543/locations/global/workloadIdentityPools/github-int-pool/providers/github-provider'
         service_account: 'github-actions-sa@dryruns.iam.gserviceaccount.com'
 
     - name: Trigger Cloud Build
-      run: |
-        gcloud builds submit --config cloudbuild.yaml 
+          run: |
+            gcloud builds submit --config cloudbuild.yaml 
+
+
+
+
+
+
