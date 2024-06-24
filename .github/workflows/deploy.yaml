@@ -21,8 +21,10 @@ jobs:
       uses: 'google-github-actions/auth@v1'
       with:
         workload_identity_provider: 'projects/551624959543/locations/global/workloadIdentityPools/github-int-pool/providers/github-provider'
-        #service_account: 'github-actions-sa@dryruns.iam.gserviceaccount.com'
-
+        service_account: 'github-actions-sa@dryruns.iam.gserviceaccount.com'
+    
+      run: |
+        gcloud builds submit --config cloudbuild.yaml 
 
 
 
