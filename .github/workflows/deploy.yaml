@@ -20,9 +20,11 @@ jobs:
       id: 'auth'
       uses: 'google-github-actions/auth@v1'
       with:
-        workload_identity_provider: 'projects/dryruns/locations/global/workloadIdentityPools/github-pool/providers/github-provider'
+        workload_identity_provider: 'projects/dryruns/locations/global/workloadIdentityPools/github-int-pool/providers/github-provider'
         service_account: 'github-actions-sa@dryruns.iam.gserviceaccount.com'
+        audience: 'projects/551624959543/locations/global/workloadIdentityPools/github-int-pool/providers/github-provider'
+
 
     - name: Trigger Cloud Build
       run: |
-        gcloud builds submit --config cloudbuild.yaml .
+        gcloud builds submit --config cloudbuild.yaml
