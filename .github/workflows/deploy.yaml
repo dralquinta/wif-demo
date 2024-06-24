@@ -28,8 +28,7 @@ jobs:
         
     
     - name: 'Run Cloudbuild'
-      run: |-
-        gcloud auth login --brief --cred-file="${{ steps.auth-gcloud.outputs.credentials_file_path }}" --update-adc
+      run: |-    
         gcloud builds submit --config cloudbuild.yaml 
     
     
