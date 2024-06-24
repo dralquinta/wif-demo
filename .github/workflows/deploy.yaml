@@ -1,0 +1,28 @@
+name: Deploy to GCP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Authenticate to Google Cloud
+      id: 'auth'
+      uses: 'google-github-actions/auth@v1'
+      with:
+        workload_identity_provider: 'projects/dryruns/locations/global/workloadIdentityPools/github-pool/providers/github-provider'
+        service_account_email: github-actions-sa@dryruns.iam.gserviceaccount.com
+
+    - name: Trigger Cloud Build
+      run: |
+        gcloud builds submit --config cloudbuild.yaml .
