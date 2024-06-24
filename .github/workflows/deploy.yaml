@@ -28,7 +28,7 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v1'
         with:
           version: '>= 444.0.0'
-          project_id: '${{ env.PROJECT_ID }}'
+          project_id: 'dryruns'
         
       
     - name: 'Run Cloudbuild'
