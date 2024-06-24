@@ -22,7 +22,7 @@ jobs:
       with:
         access_token_lifetime: 900s
         workload_identity_provider: 'projects/551624959543/locations/global/workloadIdentityPools/github-int-pool/providers/github-provider'
-        service_account: 'github-actions-sa@dryruns.iam.gserviceaccount.com'        
+        service_account: 'github-actions-sa@dryruns.iam.gserviceaccount.com'     
       
     - name: 'Run Cloudbuild'
       run: |    
