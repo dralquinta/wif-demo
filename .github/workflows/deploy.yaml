@@ -27,7 +27,9 @@ jobs:
 
     - name: Debug Auth
       run: |
-        gcloud auth list
+        gcloud auth application-default login
+        gcloud auth list --filter=status:ACTIVE --format="value(account)"
+        gcloud auth print-identity-token
         gcloud auth print-access-token
 
 
