@@ -28,14 +28,15 @@ jobs:
     - name: Setup gcloud CLI
       uses: google-github-actions/setup-gcloud@v1
       with:
-        project_id: 'dryruns'
-        export_default_credentials: true 
+        project_id: 'dryruns'        
 
     - name: Provision with Terraform
       run: |
         terraform init;
         terraform plan -out=tfplan;
         terraform apply -auto-approve tfplan;
+        terraform destroy -auto-approve;
+
 
 
     - name: Finish everything
