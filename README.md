@@ -41,3 +41,11 @@ bindings:
   role: roles/iam.workloadIdentityUser
 etag: BwYbuKo6kdo=
 version: 1
+
+
+
+    - name: Debug Auth
+      run: |
+        gcloud auth list --quiet
+        gcloud auth print-access-token --quiet
+        gcloud auth print-identity-token --quiet
