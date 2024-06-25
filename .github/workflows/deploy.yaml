@@ -29,6 +29,10 @@ jobs:
       run: |
         gcloud builds submit --config cloudbuild.yaml  
 
+    - name: Finish everything
+      run: |
+        echo "All done!"
+
 
     
     
