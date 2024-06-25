@@ -31,9 +31,12 @@ jobs:
         project_id: 'dryruns'
         export_default_credentials: true 
 
-    - name: Run Cloud Build
+    - name: Provision with Terraform
       run: |
-        gcloud builds submit --config cloudbuild.yaml  
+        terraform init;
+        terraform plan -out=tfplan;
+        terraform apply -auto-approve tfplan;
+
 
     - name: Finish everything
       run: |
