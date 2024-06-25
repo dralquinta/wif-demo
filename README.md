@@ -39,6 +39,12 @@ Updated property [core/project].
 
     ```
 
+    This is how it should look like in Console
+
+    
+
+
+
 
 
 2. Create a Workload Identity Pool (WIF)

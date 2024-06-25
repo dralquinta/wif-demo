@@ -2,10 +2,7 @@
 
 
 resource "google_compute_network" "vpc_network" {
-  project                 = "dryruns"
-  name                    = "vpc-wif-github-test"
-  auto_create_subnetworks = false
-  mtu                     = 1460
+  name = "vpc-network"
 }
 
 terraform {
@@ -14,7 +11,7 @@ terraform {
     prefix = "terraform/state"
   }
 
-    required_providers {
+required_providers {
     google = {
       source  = "hashicorp/google"
       version = "~> 4.0"
@@ -24,4 +21,5 @@ terraform {
 
 provider "google" {
   project = "dryruns"
+  region = "southamerica-west1"
 }
