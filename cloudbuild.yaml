@@ -32,3 +32,4 @@ steps:
         terraform apply -auto-approve tfplan
 
 timeout: '1200s'  # Set an appropriate timeout for your Terraform run
+ 
