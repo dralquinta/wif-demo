@@ -2,7 +2,7 @@
 
 
 resource "google_compute_network" "vpc_network" {
-  project                 = "dryrun"
+  project                 = "dryruns"
   name                    = "vpc-wif-github-test"
   auto_create_subnetworks = false
   mtu                     = 1460
