@@ -26,10 +26,10 @@ jobs:
         id_token_include_email: true
 
     - name: Setup gcloud CLI
-        uses: google-github-actions/setup-gcloud@v1
-        with:
-          project_id: 'dryruns'
-          export_default_credentials: true 
+      uses: google-github-actions/setup-gcloud@v1
+      with:
+        project_id: 'dryruns'
+        export_default_credentials: true 
 
     - name: Run Cloud Build
       run: |
