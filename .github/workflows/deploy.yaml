@@ -25,6 +25,12 @@ jobs:
         service_account: 'github-actions-sa@dryruns.iam.gserviceaccount.com'
         id_token_include_email: true
 
+    - name: Debug Auth
+      run: |
+        gcloud auth list
+        gcloud auth print-access-token
+
+
     - name: Run Cloud Build
       run: |
         gcloud builds submit --config cloudbuild.yaml
