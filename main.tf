@@ -19,6 +19,12 @@ required_providers {
   }
 }
 
+resource "null_resource" "wait_30_seconds" {
+  provisioner "local-exec" {
+    command = "sleep 30"
+  }
+}
+
 provider "google" {
   project = "dryruns"
   region = "southamerica-west1"
