@@ -23,6 +23,9 @@ resource "null_resource" "wait_30_seconds" {
   provisioner "local-exec" {
     command = "sleep 30"
   }
+    depends_on = [
+    google_compute_network.vpc_network
+  ]
 }
 
 provider "google" {
